@@ -4,7 +4,7 @@ ARG KOHYA_VERSION=v21.7.10
 ARG KOHYA_VENV=/workspace/kohya_ss/venv
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
-ENV DEBIAN_FRONTEND noninteractive\x
+ENV DEBIAN_FRONTEND noninteractive\
     SHELL=/bin/bash
 
 # Create workspace working directory
