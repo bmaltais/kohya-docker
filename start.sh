@@ -48,6 +48,7 @@ then
     echo "   ./gui.sh --listen 0.0.0.0 --server_port 3000"
 else
     echo "Starting Kohya_ss Web UI"
+    mkdir -p /workspace/logs
     cd /workspace/kohya_ss && nohup ./gui.sh --listen 0.0.0.0 --server_port 3000 > /workspace/logs/kohya_ss.log &
     echo "Kohya_ss started"
     echo "Log file: /workspace/logs/kohya_ss.log"
