@@ -1,6 +1,6 @@
 FROM nvidia/cuda:11.8.0-cudnn8-devel-ubuntu22.04 as runtime
 
-ARG KOHYA_VERSION=v21.7.10
+ARG KOHYA_VERSION=v21.7.14
 ARG KOHYA_VENV=/workspace/kohya_ss/venv
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
@@ -59,7 +59,7 @@ RUN git checkout ${KOHYA_VERSION} && \
     source ${KOHYA_VENV}/bin/activate && \
     pip install --no-cache-dir torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118 && \
     pip install --no-cache-dir xformers && \
-    pip3 install -r requirements_unix.txt && \
+    pip3 install -r requirements_runpod.txt && \
     pip3 install . && \
     pip3 cache purge && \
     deactivate

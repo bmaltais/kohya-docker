@@ -45,11 +45,13 @@ then
     echo "You can launch them it using the launcher script:"
     echo ""
     echo "   cd /workspace/kohya_ss"
-    echo "   ./gui.sh --listen 0.0.0.0 --server_port 3000"
+    echo "   ./gui.sh --listen 0.0.0.0 --server_port 3000 --headless"
 else
     echo "Starting Kohya_ss Web UI"
     mkdir -p /workspace/logs
-    cd /workspace/kohya_ss && nohup ./gui.sh --listen 0.0.0.0 --server_port 3000 > /workspace/logs/kohya_ss.log &
+    cd /workspace/kohya_ss
+    source /workspace/kohya_ss/venv/bin/activate
+    nohup ./gui.sh --listen 0.0.0.0 --server_port 3000 --headless > /workspace/logs/kohya_ss.log &
     echo "Kohya_ss started"
     echo "Log file: /workspace/logs/kohya_ss.log"
 fi
