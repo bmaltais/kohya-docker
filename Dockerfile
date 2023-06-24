@@ -58,8 +58,8 @@ RUN git checkout ${KOHYA_VERSION} && \
     python3 -m venv ${KOHYA_VENV} && \
     source ${KOHYA_VENV}/bin/activate && \
     pip install --no-cache-dir torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118 && \
-    pip install --no-cache-dir xformers && \
-    pip3 install -r requirements_linux.txt && \
+    pip install --no-cache-dir xformers==0.0.20 bitsandbytes==0.39.1 accelerate==0.15.0 tensorboard==2.12.1 tensorflow==2.12.0 && \
+    pip3 install -r requirements.txt && \
     pip3 install . && \
     pip3 cache purge && \
     deactivate
