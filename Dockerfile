@@ -59,7 +59,7 @@ RUN git checkout ${KOHYA_VERSION} && \
     source ${KOHYA_VENV}/bin/activate && \
     pip install --no-cache-dir torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118 && \
     pip install --no-cache-dir xformers && \
-    pip3 install -r requirements_runpod.txt && \
+    pip3 install -r requirements_linux.txt && \
     pip3 install . && \
     pip3 cache purge && \
     deactivate
