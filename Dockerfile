@@ -58,7 +58,7 @@ RUN git checkout ${KOHYA_VERSION} && \
     python3 -m venv ${KOHYA_VENV} && \
     source ${KOHYA_VENV}/bin/activate && \
     pip3 install --no-cache-dir torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118 && \
-    pip3 install --no-cache-dir xformers==0.0.20 bitsandbytes==0.39.1 accelerate==0.15.0 tensorboard==2.12.1 tensorflow==2.12.0 && \
+    pip3 install --no-cache-dir xformers==0.0.20 bitsandbytes==0.39.1 accelerate==0.19.0 tensorboard==2.12.1 tensorflow==2.12.0 && \
     pip3 install -r requirements.txt && \
     pip3 install . && \
     pip3 cache purge && \
@@ -92,6 +92,7 @@ RUN mv /workspace/kohya_ss /kohya_ss
 # Set up the container startup script
 COPY start.sh /start.sh
 RUN chmod a+x /start.sh
+COPY accelerate.yaml /accelerate.yaml
 
 # Start the container
 SHELL ["/bin/bash", "--login", "-c"]

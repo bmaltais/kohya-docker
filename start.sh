@@ -9,6 +9,11 @@ echo "Syncing Kohya_ss to workspace, please wait..."
 rsync -au --remove-source-files /kohya_ss/ /workspace/kohya_ss/
 rm -rf /kohya_ss
 
+# Configure accelerate
+echo "Configuring accelerate..."
+mkdir -p /root/.cache/huggingface/accelerate
+mv /accelerate.yaml /root/.cache/huggingface/accelerate/default_config.yaml
+
 if [[ ${PUBLIC_KEY} ]]
 then
     echo "Installing SSH public key"
