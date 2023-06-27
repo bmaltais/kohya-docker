@@ -62,7 +62,7 @@ RUN git clone https://github.com/bmaltais/kohya_ss.git . && \
     python3 -m venv --system-site-packages venv && \
     . venv/bin/activate && \
     pip3 install torch==2.0.1+cu118 torchvision==0.15.2+cu118 --extra-index-url https://download.pytorch.org/whl/cu118 \
-        xformers==0.0.20 bitsandbytes==0.35.0 accelerate==0.15.0 tensorboard==2.12.1 tensorflow==2.12.0 \
+        xformers==0.0.20 bitsandbytes==0.35.0 accelerate==0.15.0 tensorboard==2.12.1 tensorflow==2.12.0 wheel \
         -r requirements.txt && \
     # Fix Tensorboard
     pip3 uninstall -y tensorboard tb-nightly && \
