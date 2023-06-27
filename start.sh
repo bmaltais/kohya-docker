@@ -5,14 +5,15 @@ export KOHYA_VENV=/workspace/kohya_ss/venv
 echo "Container is running"
 
 # Sync Kohya_ss to workspace to support Network volumes
-echo "Syncing Kohya_ss to workspace, please wait..."
-rsync -au --remove-source-files /kohya_ss/ /workspace/kohya_ss/
-rm -rf /kohya_ss
+echo "Syncing kohya_ss folder to workspace, please wait..."
+rsync -au /kohya_ss/ /workspace/kohya_ss/
+# rsync -au --remove-source-files /kohya_ss/ /workspace/kohya_ss/
+# rm -rf /kohya_ss
 
 # Configure accelerate
 echo "Configuring accelerate..."
 mkdir -p /root/.cache/huggingface/accelerate
-mv /accelerate.yaml /root/.cache/huggingface/accelerate/default_config.yaml
+cp /accelerate.yaml /root/.cache/huggingface/accelerate/default_config.yaml
 
 if [[ ${PUBLIC_KEY} ]]
 then
